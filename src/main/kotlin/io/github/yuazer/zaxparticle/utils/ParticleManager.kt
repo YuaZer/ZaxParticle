@@ -9,7 +9,7 @@ import java.io.File
 import java.util.concurrent.ConcurrentHashMap
 
 object ParticleManager {
-    private val particleMap:ConcurrentHashMap<String,Particle> = ConcurrentHashMap()
+    val particleMap:ConcurrentHashMap<String,Particle> = ConcurrentHashMap()
     val playerParticleManager:ConcurrentHashMap<String,MutableList<String>> = ConcurrentHashMap()
     fun reloadParticleData(){
         submitAsync(now = true) {

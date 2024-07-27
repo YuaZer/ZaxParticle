@@ -1,121 +1,175 @@
-Manager:
-  #循环顺序
-  loop:
-    #产生粒子 格式 [particle: 粒子名称]
-    - "particle: 火焰粒子_1"
-    #延时再执行下一条 格式 [delay: ticks]
-    # 20ticks = 1秒
-    - "particle: 火焰粒子_2"
-    - "particle: 火焰粒子_3"
-    - "particle: 火焰粒子_4"
-    - "particle: 火焰粒子_5"
-    - "particle: 火焰粒子_6"
-    - "particle: 火焰粒子_7"
-    - "particle: 火焰粒子_8"
-    - "particle: 火焰粒子_9"
-    - "particle: 火焰粒子_10"
-    - "particle: 火焰粒子_11"
-    - "particle: 火焰粒子_12"
-    - "delay: 2"
-    #从索引0重新开始,也就是第一行
-    - "return: 0"
 Particle:
-  #粒子名称
-  火焰粒子_1:
+  #随便取的粒子ID名
+  roundParticle_1:
     #粒子类型
-    type: FLAME
-    #以自身为中心的偏移距离(offset)
-    x: 0.5
-    y: 1.5
-    z: 0.5
+    type: CLOUD
+    #粒子坐标偏移(实体为中心)
+    x: 2.000
+    y: 0.000
+    z: 0.000
+    #数量
     count: 1
-    speed: 0.1
+    #速度
+    speed: 0.0
     data: [ ]
-  火焰粒子_2:
-    type: FLAME
-    x: 1.0
-    y: 1.5
-    z: 1.0
+  roundParticle_2:
+    type: CLOUD
+    x: 1.414
+    y: 0.000
+    z: 1.414
     count: 1
-    speed: 0.1
+    speed: 0.0
     data: [ ]
-  火焰粒子_3:
-    type: FLAME
-    x: 1.5
-    y: 1.5
-    z: 0.5
+  roundParticle_3:
+    type: CLOUD
+    x: 0.000
+    y: 0.000
+    z: 2.000
     count: 1
-    speed: 0.1
+    speed: 0.0
     data: [ ]
-  火焰粒子_4:
-    type: FLAME
-    x: 1.0
-    y: 2.0
-    z: -0.5
+  roundParticle_4:
+    type: CLOUD
+    x: -1.414
+    y: 0.000
+    z: 1.414
     count: 1
-    speed: 0.1
+    speed: 0.0
     data: [ ]
-  火焰粒子_5:
-    type: FLAME
-    x: 1.5
-    y: 2.0
-    z: -1.0
+  roundParticle_5:
+    type: CLOUD
+    x: -2.000
+    y: 0.000
+    z: 0.000
     count: 1
-    speed: 0.1
+    speed: 0.0
     data: [ ]
-  火焰粒子_6:
-    type: FLAME
-    x: 2.0
-    y: 2.5
-    z: -0.5
+  roundParticle_6:
+    type: CLOUD
+    x: -1.414
+    y: 0.000
+    z: -1.414
     count: 1
-    speed: 0.1
+    speed: 0.0
     data: [ ]
-  火焰粒子_7:
-    type: FLAME
-    x: -0.5
-    y: 1.5
-    z: 0.5
+  roundParticle_7:
+    type: CLOUD
+    x: 0.000
+    y: 0.000
+    z: -2.000
     count: 1
-    speed: 0.1
+    speed: 0.0
     data: [ ]
-  火焰粒子_8:
-    type: FLAME
-    x: -1.0
-    y: 1.5
-    z: 1.0
+  roundParticle_8:
+    type: CLOUD
+    x: 1.414
+    y: 0.000
+    z: -1.414
     count: 1
-    speed: 0.1
+    speed: 0.0
     data: [ ]
-  火焰粒子_9:
-    type: FLAME
-    x: -1.5
-    y: 1.5
-    z: 0.5
+  roundParticle_9:
+    type: CLOUD
+    x: 2.000
+    y: 0.500
+    z: 0.000
     count: 1
-    speed: 0.1
+    speed: 0.0
     data: [ ]
-  火焰粒子_10:
-    type: FLAME
-    x: -1.0
-    y: 2.0
-    z: -0.5
+  roundParticle_10:
+    type: CLOUD
+    x: 1.414
+    y: 0.500
+    z: 1.414
     count: 1
-    speed: 0.1
+    speed: 0.0
     data: [ ]
-  火焰粒子_11:
-    type: FLAME
-    x: -1.5
-    y: 2.0
-    z: -1.0
+  roundParticle_11:
+    type: CLOUD
+    x: 0.000
+    y: 0.500
+    z: 2.000
     count: 1
-    speed: 0.1
+    speed: 0.0
     data: [ ]
-  火焰粒子_12:
-    type: FLAME
-    x: -2.0
-    y: 2.5
-    z: -0.5
+  roundParticle_12:
+    type: CLOUD
+    x: -1.414
+    y: 0.500
+    z: 1.414
     count: 1
-    speed: 0.1
+    speed: 0.0
     data: [ ]
+  roundParticle_13:
+    type: CLOUD
+    x: -2.000
+    y: 0.500
+    z: 0.000
+    count: 1
+    speed: 0.0
+    data: [ ]
+  roundParticle_14:
+    type: CLOUD
+    x: -1.414
+    y: 0.500
+    z: -1.414
+    count: 1
+    speed: 0.0
+    data: [ ]
+  roundParticle_15:
+    type: CLOUD
+    x: 0.000
+    y: 0.500
+    z: -2.000
+    count: 1
+    speed: 0.0
+    data: [ ]
+  roundParticle_16:
+    type: CLOUD
+    x: 1.414
+    y: 0.500
+    z: -1.414
+    count: 1
+    speed: 0.0
+    data: [ ]
+#粒子运行管理
+Manager:
+  #执行顺序
+  loop:
+    #生成粒子 格式 [particle: 粒子ID]
+    - "particle: roundParticle_1"
+    #延时 格式 [delay: ticks]
+    - "delay: 1"
+    - "particle: roundParticle_2"
+    - "delay: 1"
+    - "particle: roundParticle_3"
+    - "delay: 1"
+    - "particle: roundParticle_4"
+    - "delay: 1"
+    - "particle: roundParticle_5"
+    - "delay: 1"
+    - "particle: roundParticle_6"
+    - "delay: 1"
+    - "particle: roundParticle_7"
+    - "delay: 1"
+    - "particle: roundParticle_8"
+    - "delay: 1"
+    - "particle: roundParticle_9"
+    - "delay: 1"
+    - "particle: roundParticle_10"
+    - "delay: 1"
+    - "particle: roundParticle_11"
+    - "delay: 1"
+    - "particle: roundParticle_12"
+    - "delay: 1"
+    - "particle: roundParticle_13"
+    - "delay: 1"
+    - "particle: roundParticle_14"
+    - "delay: 1"
+    - "particle: roundParticle_15"
+    - "delay: 1"
+    - "particle: roundParticle_16"
+    - "delay: 1"
+    #返回到指定索引重新执行 格式 [return: 索引ID]
+    #0就是第一行
+    - "return: 0"

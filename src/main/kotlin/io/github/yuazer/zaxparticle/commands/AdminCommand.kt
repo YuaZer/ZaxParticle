@@ -11,6 +11,7 @@ import taboolib.common.platform.command.CommandBody
 import taboolib.common.platform.command.CommandHeader
 import taboolib.common.platform.command.player
 import taboolib.common.platform.command.subCommand
+import taboolib.platform.util.onlinePlayers
 import taboolib.platform.util.sendLang
 
 @CommandHeader("zaxparticle", ["zp"], permission = "zaxparticle.admin")
@@ -41,6 +42,9 @@ object AdminCommand {
                 }
             }
             player("player") {
+                suggestion<CommandSender>(uncheck = true) { sender, context ->
+                    onlinePlayers.map { it.name }
+                }
                 execute<CommandSender> { sender, context, argument ->
                     val user: ProxyPlayer =context.player("player")
                     val bukkitPlayer = user.castSafely<Player>()
@@ -58,6 +62,7 @@ object AdminCommand {
     @CommandBody
     val add = subCommand {
         dynamic("particleName") {
+            ParticleManager.particleMap.keys.toList()
             execute<CommandSender> { sender, context, argument ->
                 // 获取参数的值
                 if (sender is Player){
@@ -68,6 +73,9 @@ object AdminCommand {
                 }
             }
             player("player") {
+                suggestion<CommandSender>(uncheck = true) { sender, context ->
+                    ParticleManager.particleMap.keys.toList()
+                }
                 execute<CommandSender> { sender, context, argument ->
                     val user: ProxyPlayer =context.player("player")
                     val bukkitPlayer = user.castSafely<Player>()
@@ -81,6 +89,9 @@ object AdminCommand {
     @CommandBody
     val remove = subCommand {
         dynamic("particleName") {
+            suggestion<CommandSender>(uncheck = true) { sender, context ->
+                ParticleManager.playerParticleManager[sender.name]
+            }
             execute<CommandSender> { sender, context, argument ->
                 // 获取参数的值
                 if (sender is Player){
@@ -91,6 +102,9 @@ object AdminCommand {
                 }
             }
             player("player") {
+                suggestion<CommandSender>(uncheck = true) { sender, context ->
+                    onlinePlayers.map { it.name }
+                }
                 execute<CommandSender> { sender, context, argument ->
                     val user: ProxyPlayer =context.player("player")
                     val bukkitPlayer = user.castSafely<Player>()
