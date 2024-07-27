@@ -28,6 +28,9 @@ object AdminCommand {
     @CommandBody(permission = "zaxparticle.run")
     val run = subCommand {
         dynamic("particleName") {
+            suggestion<CommandSender>(uncheck = true) { sender, context ->
+                ParticleManager.playerParticleManager[sender.name]
+            }
             execute<CommandSender> { sender, context, argument ->
                 // 获取参数的值
                 if (sender is Player){
@@ -62,7 +65,9 @@ object AdminCommand {
     @CommandBody
     val add = subCommand {
         dynamic("particleName") {
-            ParticleManager.particleMap.keys.toList()
+            suggestion<CommandSender>(uncheck = true) { sender, context ->
+                ParticleManager.particleMap.keys.toList()
+            }
             execute<CommandSender> { sender, context, argument ->
                 // 获取参数的值
                 if (sender is Player){
