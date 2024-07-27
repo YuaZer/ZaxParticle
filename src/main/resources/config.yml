@@ -1,0 +1,4 @@
+#存储方式[YAML/MYSQL]
+StoreType: "YAML"
+#语言文件
+Lang: "zh_CN"

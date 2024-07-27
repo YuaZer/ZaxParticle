@@ -1,0 +1,121 @@
+Manager:
+  #循环顺序
+  loop:
+    #产生粒子 格式 [particle: 粒子名称]
+    - "particle: 火焰粒子_1"
+    #延时再执行下一条 格式 [delay: ticks]
+    # 20ticks = 1秒
+    - "particle: 火焰粒子_2"
+    - "particle: 火焰粒子_3"
+    - "particle: 火焰粒子_4"
+    - "particle: 火焰粒子_5"
+    - "particle: 火焰粒子_6"
+    - "particle: 火焰粒子_7"
+    - "particle: 火焰粒子_8"
+    - "particle: 火焰粒子_9"
+    - "particle: 火焰粒子_10"
+    - "particle: 火焰粒子_11"
+    - "particle: 火焰粒子_12"
+    - "delay: 2"
+    #从索引0重新开始,也就是第一行
+    - "return: 0"
+Particle:
+  #粒子名称
+  火焰粒子_1:
+    #粒子类型
+    type: FLAME
+    #以自身为中心的偏移距离(offset)
+    x: 0.5
+    y: 1.5
+    z: 0.5
+    count: 1
+    speed: 0.1
+    data: [ ]
+  火焰粒子_2:
+    type: FLAME
+    x: 1.0
+    y: 1.5
+    z: 1.0
+    count: 1
+    speed: 0.1
+    data: [ ]
+  火焰粒子_3:
+    type: FLAME
+    x: 1.5
+    y: 1.5
+    z: 0.5
+    count: 1
+    speed: 0.1
+    data: [ ]
+  火焰粒子_4:
+    type: FLAME
+    x: 1.0
+    y: 2.0
+    z: -0.5
+    count: 1
+    speed: 0.1
+    data: [ ]
+  火焰粒子_5:
+    type: FLAME
+    x: 1.5
+    y: 2.0
+    z: -1.0
+    count: 1
+    speed: 0.1
+    data: [ ]
+  火焰粒子_6:
+    type: FLAME
+    x: 2.0
+    y: 2.5
+    z: -0.5
+    count: 1
+    speed: 0.1
+    data: [ ]
+  火焰粒子_7:
+    type: FLAME
+    x: -0.5
+    y: 1.5
+    z: 0.5
+    count: 1
+    speed: 0.1
+    data: [ ]
+  火焰粒子_8:
+    type: FLAME
+    x: -1.0
+    y: 1.5
+    z: 1.0
+    count: 1
+    speed: 0.1
+    data: [ ]
+  火焰粒子_9:
+    type: FLAME
+    x: -1.5
+    y: 1.5
+    z: 0.5
+    count: 1
+    speed: 0.1
+    data: [ ]
+  火焰粒子_10:
+    type: FLAME
+    x: -1.0
+    y: 2.0
+    z: -0.5
+    count: 1
+    speed: 0.1
+    data: [ ]
+  火焰粒子_11:
+    type: FLAME
+    x: -1.5
+    y: 2.0
+    z: -1.0
+    count: 1
+    speed: 0.1
+    data: [ ]
+  火焰粒子_12:
+    type: FLAME
+    x: -2.0
+    y: 2.5
+    z: -0.5
+    count: 1
+    speed: 0.1
+    data: [ ]
