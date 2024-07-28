@@ -11,10 +11,11 @@ import taboolib.common.platform.command.CommandBody
 import taboolib.common.platform.command.CommandHeader
 import taboolib.common.platform.command.player
 import taboolib.common.platform.command.subCommand
+import taboolib.platform.util.asLangText
 import taboolib.platform.util.onlinePlayers
 import taboolib.platform.util.sendLang
 
-@CommandHeader("zaxparticle", ["zp"], permission = "zaxparticle.admin")
+@CommandHeader("zaxparticle", ["zp"])
 
 object AdminCommand {
     @CommandBody(permission = "zaxparticle.reload")
@@ -62,7 +63,7 @@ object AdminCommand {
             }
         }
     }
-    @CommandBody
+    @CommandBody(permission = "zaxparticle.add")
     val add = subCommand {
         dynamic("particleName") {
             suggestion<CommandSender>(uncheck = true) { sender, context ->
@@ -91,7 +92,7 @@ object AdminCommand {
             }
         }
     }
-    @CommandBody
+    @CommandBody(permission = "zaxparticle.remove")
     val remove = subCommand {
         dynamic("particleName") {
             suggestion<CommandSender>(uncheck = true) { sender, context ->
@@ -117,6 +118,15 @@ object AdminCommand {
                     ParticleManager.removeParticleEffect(user.name,particleName)
                     MessageUtils.sendLangMsg(bukkitPlayer!!,"remove-success")
                 }
+            }
+        }
+    }
+    @CommandBody(permission = "zaxparticle.info")
+    val info = subCommand {
+        execute<CommandSender> { sender, context, argument ->
+            sender.sendMessage(sender.asLangText("info-message"))
+            ParticleManager.playerParticleManager[sender.name]?.forEach {
+                sender.sendMessage(sender.asLangText("info-format").replace("{particle}",it))
             }
         }
     }

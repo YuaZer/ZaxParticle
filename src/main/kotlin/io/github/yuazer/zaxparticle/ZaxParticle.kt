@@ -22,6 +22,7 @@ object ZaxParticle : Plugin() {
         initFolder()
         //加载粒子数据
         ParticleManager.reloadParticleData()
+
         DataLoader.loadData()
         logLoaded()
     }
@@ -39,20 +40,23 @@ object ZaxParticle : Plugin() {
         val description = BukkitPlugin.getInstance().description
         val version = description.version
         val pluginName = description.name
+
         info("""
             
-            §a=======================================
-            §a|     §b███████╗░█████╗░██╗░░██╗         §a|
-            §a|     §b╚════██║██╔══██╗░░║██░░║         §a|
-            §a|     §b░░░░██╔╝███████║░░░██░░║         §a|
-            §a|     §b░░░██╔╝░██╔══██║░░░██░░║         §a|
-            §a|     §b░░██╔╝░░██║░░██║██║░░██║         §a|
-            §a|     §b███████░██║░░██║██║░░██║         §a|
-            §a|                                      §a|
-            §a|    §a$pluginName 插件已加载            §a|
-            §a|    §a版本: §e$version                       §a|
-            §a|    §a作者: §bZ菌[QQ:1109132]             §a|
-            §a=======================================
-        """.trimIndent())
+        §e══════════════════════════════════════════════
+        §e|      §b ________        __       ___  ___    §e|
+        §e|      §b("      "\      /""\     |"  \/"  |   §e|
+        §e|      §b \___/   :)    /    \     \   \  /    §e|
+        §e|      §b   /  ___/    /' /\  \     \\  \/     §e|
+        §e|      §b  //  \__    //  __'  \    /\.  \     §e|
+        §e|      §b (:   / "\  /   /  \\  \  /  \   \    §e|
+        §e|      §b  \_______)(___/    \___)|___/\___|   §e|
+        §e══════════════════════════════════════════════
+        §6[§eZAX§6] §aPlugin: §b$pluginName
+        §6[§eZAX§6] §aVersion: §e$version
+        §6[§eZAX§6] §aAuthor: §bZ菌[QQ:1109132]
+        §e══════════════════════════════════════════════
+    """.trimIndent())
     }
+
 }

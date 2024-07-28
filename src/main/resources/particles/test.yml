@@ -170,6 +170,15 @@ Manager:
     - "delay: 1"
     - "particle: roundParticle_16"
     - "delay: 1"
+    #执行命令 格式 [command: 命令] 支持PAPI变量
+    - "command: say hello %cmi_user_name%"
+    #执行kether语句
+    - "kether: 执行指令的kether"
     #返回到指定索引重新执行 格式 [return: 索引ID]
     #0就是第一行
     - "return: 0"
+Kether:
+  #随便取名
+  执行指令的kether:
+    - command inline "msg {{ sender }} 你好" as console
+    - tell "§7[§a§l!§7] §a我是一个kether语句哦"

@@ -1,5 +1,6 @@
-package io.github.yuazer.zaxparticle.data
+package io.github.yuazer.zaxparticle.data.yaml
 
+import io.github.yuazer.zaxparticle.data.IDataStore
 import io.github.yuazer.zaxparticle.utils.ParticleManager
 import taboolib.common.io.newFile
 import taboolib.common.platform.function.getDataFolder
@@ -7,7 +8,7 @@ import taboolib.common.platform.function.submitAsync
 import taboolib.module.configuration.Configuration
 import taboolib.module.configuration.Type
 
-object YamlStore :IDataStore{
+object YamlStore : IDataStore {
 
     override fun save() {
         submitAsync(now = true) {
@@ -32,7 +33,6 @@ object YamlStore :IDataStore{
                     if (it.name.endsWith(".yml")){
                         val name = it.name.replace(".yml","")
                         val data = Configuration.loadFromFile(it, Type.YAML)
-                        println("list:\n"+data.getStringList(name).toMutableList())
                         ParticleManager.playerParticleManager[name] = data.getStringList(name).toMutableList()
                     }
                 }
