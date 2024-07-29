@@ -2,3 +2,8 @@
 StoreType: "YAML"
 #语言文件
 Lang: "zh_CN"
+#实现模式(bukkit/packet)
+#部分服务端无法使用packet模式,推荐bukkit模式
+ImplMode: "bukkit"
+#执行kether的执行器[ZaxParticle/Adyeshach]
+KetherShell: "ZaxParticle"

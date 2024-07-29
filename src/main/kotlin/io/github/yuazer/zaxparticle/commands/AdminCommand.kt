@@ -74,6 +74,14 @@ object AdminCommand {
                 if (sender is Player){
                     val user: Player = sender
                     val particleName = context["particleName"]
+                    if (!ParticleManager.particleMap.keys.contains(particleName)){
+                        MessageUtils.sendLangMsg(user,"no-particle")
+                        return@execute
+                    }
+                    if (ParticleManager.playerParticleManager[user.name]?.contains(particleName) == true){
+                        MessageUtils.sendLangMsg(user,"already-have-particle")
+                        return@execute
+                    }
                     ParticleManager.addParticleEffect(user.name,particleName)
                     MessageUtils.sendLangMsg(user,"add-success")
                 }
@@ -86,8 +94,21 @@ object AdminCommand {
                     val user: ProxyPlayer =context.player("player")
                     val bukkitPlayer = user.castSafely<Player>()
                     val particleName = context["particleName"]
-                    ParticleManager.addParticleEffect(user.name,particleName)
-                    MessageUtils.sendLangMsg(bukkitPlayer!!,"add-success")
+                    if (!ParticleManager.particleMap.keys.contains(particleName)){
+                        MessageUtils.sendLangMsg(bukkitPlayer!!,"no-particle")
+                        return@execute
+                    }
+                    if (bukkitPlayer != null) {
+                        if (ParticleManager.playerParticleManager[bukkitPlayer.name]?.contains(particleName) == true){
+                            MessageUtils.sendLangMsg(bukkitPlayer,"already-have-particle")
+                            return@execute
+                        }
+                        ParticleManager.addParticleEffect(bukkitPlayer.name,particleName)
+                        MessageUtils.sendLangMsg(bukkitPlayer,"add-success")
+                    }else{
+                        MessageUtils.sendLangMsg(user,"not-online")
+                        return@execute
+                    }
                 }
             }
         }
@@ -103,6 +124,10 @@ object AdminCommand {
                 if (sender is Player){
                     val user: Player = sender
                     val particleName = context["particleName"]
+                    if (ParticleManager.playerParticleManager[user.name]?.contains(particleName) == false){
+                        MessageUtils.sendLangMsg(user,"player-not-have-particle")
+                        return@execute
+                    }
                     ParticleManager.removeParticleEffect(user.name,particleName)
                     MessageUtils.sendLangMsg(user,"remove-success")
                 }
@@ -115,6 +140,15 @@ object AdminCommand {
                     val user: ProxyPlayer =context.player("player")
                     val bukkitPlayer = user.castSafely<Player>()
                     val particleName = context["particleName"]
+                    if (bukkitPlayer != null) {
+                        if (ParticleManager.playerParticleManager[bukkitPlayer.name]?.contains(particleName) == false){
+                            MessageUtils.sendLangMsg(user,"player-not-have-particle")
+                            return@execute
+                        }
+                    }else{
+                        MessageUtils.sendLangMsg(user,"not-online")
+                        return@execute
+                    }
                     ParticleManager.removeParticleEffect(user.name,particleName)
                     MessageUtils.sendLangMsg(bukkitPlayer!!,"remove-success")
                 }

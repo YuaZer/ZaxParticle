@@ -7,7 +7,10 @@ import org.bukkit.Particle
 import org.bukkit.World
 import org.bukkit.entity.Entity
 import org.bukkit.inventory.ItemStack
+import taboolib.common.platform.ProxyParticle
+import taboolib.common.platform.ProxyPlayer
 import taboolib.common.platform.function.submit
+import taboolib.common.util.Vector
 
 object ParticleUtils {
     /**
@@ -32,6 +35,7 @@ object ParticleUtils {
         speed: Double,
         data: List<String>?
     ) {
+
         submit {
             val world: World = entity.world
             val location: Location = entity.location
@@ -60,7 +64,7 @@ object ParticleUtils {
                 Particle.BLOCK_CRACK, Particle.BLOCK_DUST, Particle.FALLING_DUST -> {
                     // 如果是方块破碎粒子或落尘粒子，需要BlockData数据
                     val blockData = data?.firstOrNull()?.let { materialName ->
-                        Material.matchMaterial(materialName)?.createBlockData()
+                        Material.matchMaterial(materialName)?.data
                     }
                     if (blockData != null) {
                         world.spawnParticle(particle, location, count, offsetX, offsetY, offsetZ, speed, blockData)

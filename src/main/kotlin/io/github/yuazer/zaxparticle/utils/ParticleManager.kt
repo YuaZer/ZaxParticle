@@ -1,7 +1,8 @@
 package io.github.yuazer.zaxparticle.utils
 
-import io.github.yuazer.zaxparticle.`object`.Particle
+import io.github.yuazer.zaxparticle.objectives.Particle
 import taboolib.common.platform.function.getDataFolder
+import taboolib.common.platform.function.info
 import taboolib.common.platform.function.submitAsync
 import taboolib.module.configuration.Configuration
 import taboolib.module.configuration.Type
@@ -64,6 +65,7 @@ object ParticleManager {
      */
     fun saveParticle(key: String, particle: Particle) {
         particleMap[key] = particle
+        info("§e加载粒子组§e: §6${key}")
     }
 
     /**
