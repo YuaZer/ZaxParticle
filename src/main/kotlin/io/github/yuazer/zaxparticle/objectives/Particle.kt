@@ -11,6 +11,7 @@ import org.bukkit.Location
 import org.bukkit.Particle
 import org.bukkit.entity.Entity
 import org.bukkit.entity.Player
+import taboolib.common.platform.ProxyParticle
 import taboolib.common.platform.function.submitAsync
 import taboolib.module.configuration.Configuration
 import taboolib.platform.BukkitPlugin
@@ -83,15 +84,19 @@ data class Particle(val name: String, val particleConfig: Configuration) {
 
 class BaseParticle(particleConfig: Configuration, name: String) {
      val type: Particle = Particle.valueOf(particleConfig.getString("Particle.${name}.type")!!)
+    val proxyType:ProxyParticle = ProxyParticle.valueOf(particleConfig.getString("Particle.${name}.type")!!)
      val x: Double = particleConfig.getDouble("Particle.${name}.x")
      val y: Double = particleConfig.getDouble("Particle.${name}.y")
      val z: Double = particleConfig.getDouble("Particle.${name}.z")
+    val offsetX: Double = particleConfig.getDouble("Particle.${name}.offsetX",0.0)
+    val offsetY: Double = particleConfig.getDouble("Particle.${name}.offsetY",0.0)
+    val offsetZ: Double = particleConfig.getDouble("Particle.${name}.offsetZ",0.0)
      val count: Int = particleConfig.getInt("Particle.${name}.count")
      val speed: Double = particleConfig.getDouble("Particle.${name}.speed")
      val data: List<String>? = particleConfig.getStringList("Particle.${name}.data")
     fun runParticle(entity: Entity) {
         if (ZaxParticle.config.getString("ImplMode").equals("bukkit",true)){
-            ParticleUtils.spawnParticle(entity, type, count, x, y, z, speed, data)
+            ParticleUtils.spawnParticle(entity, proxyType,  x, y, z,offsetX,offsetY,offsetZ ,count,speed, data)
         }else{
             NMSImpl.INSTANCE.sendParticle(entity,this)
         }
